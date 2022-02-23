@@ -22,17 +22,18 @@ public class MyApp {
 		//GET MALE PERSON WITH AGE > 30 OR FEMALE WITH AGE > 25
 		
 		//get person where age > 30 and are Male
-		Criteria age = factory.getCriteria("ageGt=30");
-		Criteria gender = factory.getCriteria("gender=M");
+		Criteria age = factory.getCriteria("ageGt","30");
+		Criteria gender = factory.getCriteria("gender","M");
 		auxlist = age.meetCriteria(persons);
 		auxlist = gender.meetCriteria(auxlist);
+		print(auxlist);
 		
 		//get person where age > 25 and are Female
-		age = factory.getCriteria("ageGt=25");
-		gender = factory.getCriteria("gender=F");
+		age = factory.getCriteria("ageGt","29");
+		gender = factory.getCriteria("gender","F");
 		femalelist = age.meetCriteria(persons);
 		femalelist = gender.meetCriteria(femalelist);
-		
+		print(femalelist);
 		//join the two list
 		List<Person> newList = new ArrayList<Person>(auxlist);
 		newList.addAll(femalelist);
@@ -43,12 +44,12 @@ public class MyApp {
 		//********************** EXERCISE 2*****************************
 		//GET MALE PERSON WITH AGE > 18 AND AGE < 55
 		
-		age = factory.getCriteria("ageGt=18");
+		age = factory.getCriteria("ageGt","18");
 		auxlist = new ArrayList<Person>();
 		auxlist = age.meetCriteria(persons);
-		age = factory.getCriteria("ageLt=55");
+		age = factory.getCriteria("ageLt","55");
 		auxlist = age.meetCriteria(auxlist);
-		gender = factory.getCriteria("gender=M");
+		gender = factory.getCriteria("gender","M");
 		malelist = gender.meetCriteria(auxlist);
 		System.out.print("\n MALE PERSON WITH AGE > 18 AND AGE < 55");
 		print(malelist);
@@ -56,7 +57,7 @@ public class MyApp {
 		
 		//********************** EXERCISE 3*****************************
 		//GET FEMALE PERSON WITH AGE > 18 AND AGE < 55
-		gender = factory.getCriteria("gender=F");
+		gender = factory.getCriteria("gender","F");
 		femalelist = gender.meetCriteria(auxlist);
 		System.out.print("\n FEMALE PERSON WITH AGE > 18 AND AGE < 55");
 		print(femalelist);
@@ -64,7 +65,7 @@ public class MyApp {
 		
 		//********************** EXERCISE 4*****************************
 		//GET FEMALE PERSON WITH AGE > 18 AND AGE < 55 AND name=a
-		Criteria name = factory.getCriteria("name=Megan");
+		Criteria name = factory.getCriteria("name","Megan");
 		femalelist = name.meetCriteria(femalelist);
 		System.out.print("\n FEMALE PERSON WITH AGE > 18 AND AGE < 55 AND NAME=Megan");
 		print(femalelist);

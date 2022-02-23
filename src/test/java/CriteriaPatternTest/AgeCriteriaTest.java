@@ -14,7 +14,7 @@ public class AgeCriteriaTest {
 	ArrayList<Person> auxlist = new ArrayList<Person>();
 	int[] expected = new int[]{34,31};
 	CriteriaFactory factory = new CriteriaFactory();
-	Criteria age = factory.getCriteria("ageGt=30");
+	Criteria age = factory.getCriteria("ageGt","30");
 	
 	
 	@Before
